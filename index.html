@@ -184,6 +184,40 @@ footer.site{margin:56px 0 34px;position:relative;z-index:1}
   .search input{width:100%}
   .range{display:none}
 }
+
+/* ── admin ─────────────────────────── */
+.adminlink{font-family:var(--mono);font-size:10px;color:var(--faint);border:1px solid var(--edge-soft);background:rgba(255,255,255,.5);padding:4px 12px;border-radius:999px;transition:all .2s ease}
+.adminlink:hover{color:var(--aqua-deep);border-color:var(--aqua)}
+.adm{position:absolute;top:16px;right:16px;z-index:3;display:flex;gap:6px}
+.ab{width:34px;height:34px;border-radius:11px;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--edge);display:grid;place-items:center;color:var(--ink);box-shadow:var(--shadow-soft);transition:all .18s ease}
+.ab:hover{background:#2E3E52;color:#fff}
+.ab-del:hover{background:#C43D3D}
+.hbadge{position:absolute;left:16px;top:16px;z-index:2;font-family:var(--mono);font-size:10px;font-weight:600;color:#fff;background:rgba(46,62,82,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:4px 10px;border-radius:999px}
+.card.is-hidden .thumb img{opacity:.4;filter:grayscale(.5)}
+.card.is-hidden .cbody{opacity:.55}
+.modal{position:fixed;inset:0;z-index:50;background:rgba(46,62,82,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:grid;place-items:center;padding:24px}
+.modal[hidden]{display:none}
+.mcard{width:min(340px,92vw);background:var(--glass-strong);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border:1px solid var(--edge);border-radius:20px;box-shadow:var(--shadow);padding:24px 22px;text-align:center}
+.mcard h3{font-size:17px;font-weight:800}
+.mcard p{font-size:12.5px;color:var(--muted);margin-top:4px}
+.mcard input{margin-top:16px;width:100%;padding:11px 14px;border-radius:12px;border:1px solid var(--edge-soft);background:rgba(255,255,255,.85);font:inherit;font-size:14px;text-align:center;outline:none}
+.mcard input:focus{border-color:var(--aqua)}
+.mErr{min-height:18px;font-size:11.5px;color:#C43D3D;margin-top:6px}
+.mrow{display:flex;gap:8px;margin-top:8px}
+.mbtn{flex:1;padding:10px 0;border-radius:12px;font-weight:700;font-size:13px;border:1px solid var(--edge-soft);background:rgba(255,255,255,.7);color:var(--muted)}
+.mbtn.primary{background:linear-gradient(135deg,var(--aqua-soft),var(--aqua));color:#fff;border:0;box-shadow:0 8px 18px -8px rgba(70,184,210,.6)}
+.admin-bar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:40;display:flex;align-items:center;gap:10px;background:var(--glass-strong);backdrop-filter:blur(16px) saturate(1.5);-webkit-backdrop-filter:blur(16px) saturate(1.5);border:1px solid var(--edge);border-radius:999px;box-shadow:var(--shadow);padding:9px 10px 9px 16px;font-size:12px;font-weight:700;color:var(--ink);white-space:nowrap;max-width:94vw}
+.ad-dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--aqua-soft),var(--aqua));animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+.admin-bar[hidden]{display:none}
+.admin-bar button{font-family:var(--mono);font-size:10.5px;font-weight:600;color:#fff;background:#2E3E52;border-radius:999px;padding:6px 13px}
+.toast{position:fixed;left:50%;bottom:70px;transform:translateX(-50%) translateY(12px);z-index:60;background:rgba(46,62,82,.92);color:#fff;font-size:12.5px;font-weight:600;padding:10px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:all .3s ease;white-space:nowrap;max-width:92vw}
+.toast.on{opacity:1;transform:translateX(-50%)}
+#delzone .delrow{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.delchip{display:inline-flex;align-items:center;gap:9px;background:var(--glass);border:1px solid var(--edge);border-radius:999px;padding:7px 8px 7px 15px;font-size:12.5px;font-weight:700;color:var(--muted);box-shadow:var(--shadow-soft)}
+.delchip button{font-size:11px;font-weight:700;color:var(--aqua-deep);background:#DDF2F7;border-radius:999px;padding:5px 11px}
+.delchip button:hover{background:var(--aqua);color:#fff}
+@media (prefers-reduced-motion:reduce){.ad-dot{animation:none}}
 </style>
 </head>
 <body id="top">
@@ -194,7 +228,7 @@ footer.site{margin:56px 0 34px;position:relative;z-index:1}
     <span class="qdot">Q</span>
     <div class="nav-title">쿼카 아카이브<small>Quoka Archive · with Claude</small></div>
     <span class="nav-sp"></span>
-    <span class="range">2026.03 — 2026.07 · 24 WORKS</span>
+    <span class="range">2026.03 — 2026.07 · <span id="navCount">24</span> WORKS</span>
   </div>
 </div>
 
@@ -206,7 +240,7 @@ footer.site{margin:56px 0 34px;position:relative;z-index:1}
         <p class="lead">2026년 봄부터 여름까지, 클로드와 함께 만들어 온라인에 올린 게임·수업 도구·연수 앱을 전부 모았어요. 카드를 누르면 바로 열려요.</p>
       </div>
       <div class="stat-pills">
-        <span class="spill"><i></i><b>24</b><span>작품</span></span>
+        <span class="spill"><i></i><b id="statWorks">24</b><span>작품</span></span>
         <span class="spill"><i></i><b>5</b><span>갈래</span></span>
         <span class="spill"><i></i><b>5</b><span>개월</span></span>
       </div>
@@ -262,6 +296,7 @@ footer.site{margin:56px 0 34px;position:relative;z-index:1}
   <div class="wrap">
     <div class="grid" id="grid"></div>
     <div class="empty" id="empty" hidden><b>찾는 작품이 없어요</b>다른 키워드로 다시 찾아보세요.<br><button class="chip" id="resetAll" style="margin-top:14px;border:1px solid var(--edge-soft);background:rgba(255,255,255,.8)">전체 작품 다시 보기</button></div>
+    <div id="delzone" hidden></div>
   </div>
 </main>
 
@@ -292,9 +327,30 @@ footer.site{margin:56px 0 34px;position:relative;z-index:1}
       <span class="qdot">Q</span>
       <span>이 아카이브도 클로드와 함께 만들었어요 · 2026.07</span>
     </div>
-    <div class="foot-r">gottkf1208.github.io · higgsfield.app · claude.ai</div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <span class="foot-r">gottkf1208.github.io · higgsfield.app · claude.ai</span>
+      <button class="adminlink" id="adminBtn" aria-label="관리 모드">관리</button>
+    </div>
   </div>
 </footer>
+
+<div class="modal" id="adminModal" hidden>
+  <form class="mcard" id="pwForm">
+    <h3>관리 모드</h3>
+    <p>관리자 비밀번호를 입력하세요</p>
+    <input type="password" id="pwInput" autocomplete="current-password" placeholder="비밀번호" aria-label="관리자 비밀번호">
+    <div class="mErr" id="pwErr"></div>
+    <div class="mrow">
+      <button type="button" class="mbtn" id="pwCancel">닫기</button>
+      <button type="submit" class="mbtn primary">들어가기</button>
+    </div>
+  </form>
+</div>
+<div class="admin-bar" id="adminBar" hidden>
+  <span class="ad-dot"></span>관리 모드 · 눈 = 숨김 · 휴지통 = 삭제
+  <button id="adminExit" type="button">나가기</button>
+</div>
+<div class="toast" id="toast" role="status"></div>
 
 <script>
 const CATS = {
@@ -305,6 +361,16 @@ const CATS = {
   '연구회·브랜드': ['#E5EBF2','#33445C'],
 };
 const HOSTDOT = {'higgsfield.app':'#46B8D2','github.io':'#2A3550'};
+const API = 'https://quoka-archive-api.higgsfield.app';
+
+/* 숨김/삭제 상태 — 서버(D1)가 진실, localStorage는 첫 화면 깜빡임 방지용 캐시 */
+let srv = {hidden:[], deleted:[]};
+let admin = false, adminPw = '';
+try{ const c = JSON.parse(localStorage.getItem('qa_state')||'null'); if(c && Array.isArray(c.hidden) && Array.isArray(c.deleted)) srv = c; }catch(e){}
+const isHidden = s => srv.hidden.includes(s);
+const isDeleted = s => srv.deleted.includes(s);
+const visibleWorks = () => WORKS.filter(w=>!isHidden(w.slug)&&!isDeleted(w.slug));
+const gridWorks = () => admin ? WORKS.filter(w=>!isDeleted(w.slug)) : visibleWorks();
 
 /* no = 제작 순서(오래된 것부터). 기본 정렬은 최신순. feat = 대표 캐러셀. */
 const WORKS = [
@@ -340,9 +406,14 @@ const chipsBox = document.getElementById('chips');
 let cat = '전체', q = '';
 const pad = n => String(n).padStart(2,'0');
 
+const EYE = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.6"/></svg>`;
+const EYEOFF = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-6 10-6c2 0 3.7.55 5.1 1.3M22 12s-3.5 6-10 6c-2 0-3.7-.55-5.1-1.3M4 20 20 4"/></svg>`;
+const TRASH = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M10 11v5M14 11v5M6 7l1 12h10l1-12M9 7V5h6v2"/></svg>`;
+
 function card(w, i){
   const [bg, fg] = CATS[w.c];
   const dot = HOSTDOT[w.host] || '#7D6C33';
+  const hiddenNow = isHidden(w.slug);
   const link = w.self
     ? `<span class="here">지금 여기</span>`
     : `<span class="go" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17 17 7M9 7h8v8"/></svg></span>`;
@@ -350,8 +421,13 @@ function card(w, i){
     ? `<a href="#top" aria-label="${w.t}">${w.t}</a>`
     : `<a href="${w.url}" target="_blank" rel="noopener" aria-label="${w.t} 새 탭에서 열기">${w.t}</a>`;
   const alt = w.alt ? `<div class="alt">${w.alt.map(a=>`<a href="${a[1]}" target="_blank" rel="noopener">${a[0]} ↗</a>`).join(' · ')}</div>` : '';
-  return `<article class="card enter" id="card-${w.slug}" style="--i:${i}">
-    <div class="thumb"><img src="thumbs/${w.slug}.webp" alt="${w.t} 화면" loading="lazy" width="800" height="500"></div>
+  const adm = admin ? `<div class="adm">
+      <button type="button" class="ab" data-act="${hiddenNow?'unhide':'hide'}" data-slug="${w.slug}" title="${hiddenNow?'다시 보이기':'숨김'}" aria-label="${w.t} ${hiddenNow?'다시 보이기':'숨김'}">${hiddenNow?EYE:EYEOFF}</button>
+      <button type="button" class="ab ab-del" data-act="delete" data-slug="${w.slug}" title="삭제" aria-label="${w.t} 삭제">${TRASH}</button>
+    </div>` : '';
+  const badge = (admin && hiddenNow) ? `<span class="hbadge">숨김 중</span>` : '';
+  return `<article class="card enter${admin&&hiddenNow?' is-hidden':''}" id="card-${w.slug}" style="--i:${i}">
+    <div class="thumb">${badge}${adm}<img src="thumbs/${w.slug}.webp" alt="${w.t} 화면" loading="lazy" width="800" height="500"></div>
     <div class="cbody">
       <div class="cmeta"><span class="cat" style="background:${bg};color:${fg}">${w.c}</span><span class="idx">No.${pad(w.no)} · ${w.date}</span></div>
       <h3>${title}</h3>
@@ -364,7 +440,7 @@ function card(w, i){
 
 let first = true;
 function render(){
-  const list = WORKS.filter(w =>
+  const list = gridWorks().filter(w =>
     (cat==='전체' || w.c===cat) &&
     (!q || (w.t+w.d+w.c+w.slug).toLowerCase().includes(q)));
   /* 자기 자신 카드는 맨 끝으로 — 프라임 슬롯은 진짜 작품에게 */
@@ -380,8 +456,10 @@ function setCat(name){
 }
 
 function chips(){
-  const counts = {'전체':WORKS.length};
-  WORKS.forEach(w=>counts[w.c]=(counts[w.c]||0)+1);
+  chipsBox.querySelectorAll('.chip').forEach(c=>c.remove());
+  const pool = gridWorks();
+  const counts = {'전체':pool.length};
+  pool.forEach(w=>counts[w.c]=(counts[w.c]||0)+1);
   const names = ['전체',...Object.keys(CATS)];
   names.reverse().forEach(name=>{
     const b = document.createElement('button');
@@ -403,13 +481,12 @@ document.getElementById('resetAll').addEventListener('click', ()=>{
 });
 
 /* ── featured carousel ── */
-const FEAT = WORKS.filter(w=>w.feat);
+let FEAT = [];
 const stage = document.getElementById('stage');
 const dots = document.getElementById('dots');
-stage.innerHTML = FEAT.map((w,i)=>`<img src="thumbs/${w.slug}.webp" alt="${w.t}" ${i?'loading="lazy"':''} class="${i===0?'on':''}">`).join('');
-dots.innerHTML = FEAT.map((w,i)=>`<button role="tab" aria-current="${i===0}" aria-label="${w.t}" data-i="${i}"></button>`).join('');
 let cur = 0, timer = null;
 function show(i){
+  if(!FEAT.length) return;
   cur = i;
   stage.querySelectorAll('img').forEach((im,j)=>im.classList.toggle('on', j===i));
   dots.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-current', j===i));
@@ -418,19 +495,35 @@ function show(i){
   document.getElementById('cap-d').textContent = w.d;
   document.getElementById('cap-a').href = w.url;
 }
-function auto(){ clearInterval(timer); if(!matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(()=>show((cur+1)%FEAT.length), 5000); }
+function auto(){ clearInterval(timer); if(FEAT.length>1 && !matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(()=>show((cur+1)%FEAT.length), 5000); }
+let featKey = null;
+function buildCarousel(){
+  const items = visibleWorks().filter(w=>w.feat);
+  const key = items.map(w=>w.slug).join(',');
+  if(key === featKey) return;
+  featKey = key;
+  FEAT = items;
+  const feature = document.querySelector('.feature');
+  clearInterval(timer);
+  if(!FEAT.length){ feature.style.display='none'; return; }
+  feature.style.display='';
+  stage.innerHTML = FEAT.map((w,i)=>`<img src="thumbs/${w.slug}.webp" alt="${w.t}" ${i?'loading="lazy"':''} class="${i===0?'on':''}">`).join('');
+  dots.innerHTML = FEAT.map((w,i)=>`<button role="tab" aria-current="${i===0}" aria-label="${w.t}" data-i="${i}"></button>`).join('');
+  show(0); auto();
+}
 dots.addEventListener('click', e=>{ const b = e.target.closest('button'); if(b){ show(+b.dataset.i); auto(); } });
 document.querySelector('.feature').addEventListener('mouseenter', ()=>clearInterval(timer));
 document.querySelector('.feature').addEventListener('mouseleave', auto);
-show(0); auto();
 
 /* ── rail scroller ── */
 const rail = document.getElementById('rail');
-rail.innerHTML = WORKS.filter(w=>!w.self).map(w=>
-  `<a class="rcard" href="#card-${w.slug}" title="${w.t}" aria-label="${w.t} 카드로 이동">
-    <img src="thumbs/${w.slug}.webp" alt="" loading="lazy" width="800" height="500">
-    <span class="rt"><div><h3>${w.t}</h3><p>No.${pad(w.no)} · ${w.date}</p></div><i></i></span>
-  </a>`).join('');
+function buildRail(){
+  rail.innerHTML = visibleWorks().filter(w=>!w.self).map(w=>
+    `<a class="rcard" href="#card-${w.slug}" title="${w.t}" aria-label="${w.t} 카드로 이동">
+      <img src="thumbs/${w.slug}.webp" alt="" loading="lazy" width="800" height="500">
+      <span class="rt"><div><h3>${w.t}</h3><p>No.${pad(w.no)} · ${w.date}</p></div><i></i></span>
+    </a>`).join('');
+}
 rail.addEventListener('click', ()=>{
   /* 필터가 걸려 있으면 대상 카드가 없을 수 있으니 먼저 전체로 복원 */
   if(cat!=='전체' || q){ document.getElementById('q').value=''; q=''; setCat('전체'); render(); }
@@ -438,8 +531,94 @@ rail.addEventListener('click', ()=>{
 document.getElementById('railPrev').onclick = ()=>rail.scrollBy({left:-644,behavior:'smooth'});
 document.getElementById('railNext').onclick = ()=>rail.scrollBy({left:644,behavior:'smooth'});
 
-chips();
-render();
+/* ── 관리 모드 ── */
+const delzone = document.getElementById('delzone');
+const adminBar = document.getElementById('adminBar');
+const modal = document.getElementById('adminModal');
+const toastEl = document.getElementById('toast');
+let toastT = null;
+function toast(msg){ toastEl.textContent = msg; toastEl.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(()=>toastEl.classList.remove('on'), 2800); }
+function cacheState(){ try{ localStorage.setItem('qa_state', JSON.stringify(srv)); }catch(e){} }
+
+function applyAll(){
+  const n = visibleWorks().length;
+  document.getElementById('navCount').textContent = n;
+  document.getElementById('statWorks').textContent = n;
+  chips(); buildRail(); buildCarousel(); render(); renderDelzone();
+  adminBar.hidden = !admin;
+  document.getElementById('adminBtn').textContent = admin ? '관리 종료' : '관리';
+}
+
+function renderDelzone(){
+  const dels = WORKS.filter(w=>isDeleted(w.slug));
+  if(!admin || !dels.length){ delzone.hidden = true; delzone.innerHTML = ''; return; }
+  delzone.hidden = false;
+  delzone.innerHTML = `<div class="sect" style="margin-top:36px"><h2>삭제된 작품</h2><span class="sub">공개 화면에서 빠져 있어요 · 언제든 복원할 수 있어요</span></div>
+    <div class="delrow">` + dels.map(w=>`<span class="delchip">${w.t}<button type="button" data-slug="${w.slug}">복원</button></span>`).join('') + `</div>`;
+}
+delzone.addEventListener('click', e=>{ const b = e.target.closest('button'); if(b) doAction('restore', b.dataset.slug); });
+
+async function doAction(action, slug){
+  try{
+    const r = await fetch(API+'/api/admin', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({password: adminPw, action, slug})});
+    const j = await r.json();
+    if(!j.ok){
+      if(j.code==='bad_password'){ logout(); toast('비밀번호가 맞지 않아요 — 다시 로그인해 주세요'); }
+      else toast('처리하지 못했어요 · 잠시 후 다시 시도해 주세요');
+      return;
+    }
+    srv = j.state; cacheState(); applyAll();
+    toast({hide:'숨겼어요 · 방문자에게 보이지 않아요', unhide:'다시 보이게 했어요', delete:'삭제했어요 · 아래 "삭제된 작품"에서 복원할 수 있어요', restore:'복원했어요'}[action] || '저장했어요');
+  }catch(e){ toast('서버에 연결하지 못했어요'); }
+}
+
+function logout(){ admin = false; adminPw = ''; sessionStorage.removeItem('qa_pw'); applyAll(); }
+
+async function login(pw, silent){
+  const err = document.getElementById('pwErr');
+  err.textContent = '';
+  try{
+    const r = await fetch(API+'/api/admin', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({password: pw, action:'verify'})});
+    const j = await r.json();
+    if(j.ok){
+      admin = true; adminPw = pw; sessionStorage.setItem('qa_pw', pw);
+      srv = j.state; cacheState(); modal.hidden = true; applyAll();
+      if(!silent) toast('관리 모드로 들어왔어요');
+    } else {
+      sessionStorage.removeItem('qa_pw');
+      if(!silent) err.textContent = '비밀번호가 맞지 않아요';
+    }
+  }catch(e){ if(!silent) err.textContent = '서버에 연결하지 못했어요'; }
+}
+
+document.getElementById('adminBtn').addEventListener('click', ()=>{
+  if(admin){ logout(); toast('관리 모드를 끝냈어요'); return; }
+  modal.hidden = false;
+  const inp = document.getElementById('pwInput');
+  inp.value = ''; document.getElementById('pwErr').textContent = '';
+  setTimeout(()=>inp.focus(), 50);
+});
+document.getElementById('pwForm').addEventListener('submit', e=>{ e.preventDefault(); login(document.getElementById('pwInput').value, false); });
+document.getElementById('pwCancel').addEventListener('click', ()=>{ modal.hidden = true; });
+modal.addEventListener('click', e=>{ if(e.target === modal) modal.hidden = true; });
+document.getElementById('adminExit').addEventListener('click', ()=>{ logout(); toast('관리 모드를 끝냈어요'); });
+
+grid.addEventListener('click', e=>{
+  const b = e.target.closest('.ab');
+  if(!b) return;
+  e.preventDefault(); e.stopPropagation();
+  const act = b.dataset.act;
+  if(act==='delete' && !confirm('이 작품을 목록에서 삭제할까요?\n(관리 모드 하단 "삭제된 작품"에서 언제든 복원할 수 있어요)')) return;
+  doAction(act, b.dataset.slug);
+});
+
+/* ── boot ── */
+applyAll();
+fetch(API+'/api/state').then(r=>r.json()).then(s=>{
+  if(s && Array.isArray(s.hidden) && Array.isArray(s.deleted)){ srv = s; cacheState(); applyAll(); }
+}).catch(()=>{});
+const savedPw = sessionStorage.getItem('qa_pw');
+if(savedPw) login(savedPw, true);
 </script>
 </body>
 </html>
