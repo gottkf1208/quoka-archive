@@ -228,7 +228,7 @@ footer.site{margin:56px 0 34px;position:relative;z-index:1}
     <span class="qdot">Q</span>
     <div class="nav-title">두목쿼카의 코딩 아카이브<small>Dumok Quoka · Coding Archive</small></div>
     <span class="nav-sp"></span>
-    <span class="range">2026.03 — 2026.07 · <span id="navCount">27</span> WORKS</span>
+    <span class="range">2026.03 — 2026.07 · <span id="navCount">28</span> WORKS</span>
   </div>
 </div>
 
@@ -360,7 +360,7 @@ const CATS = {
   '생성기·프롬프트':['#DCEDFA','#1E6FA8'],
   '연구회·브랜드': ['#E5EBF2','#33445C'],
 };
-const HOSTDOT = {'higgsfield.app':'#46B8D2','github.io':'#2A3550'};
+const HOSTDOT = {'higgsfield.app':'#46B8D2','higgsfield.gg':'#46B8D2','github.io':'#2A3550'};
 const API = 'https://quoka-archive-api.higgsfield.app';
 
 /* 숨김/삭제 상태 — 서버(D1)가 진실, localStorage는 첫 화면 깜빡임 방지용 캐시 */
@@ -375,6 +375,7 @@ const gridWorks = () => admin ? WORKS.filter(w=>!isDeleted(w.slug)) : visibleWor
 /* no = 제작 순서(오래된 것부터). 기본 정렬은 최신순. feat = 대표 캐러셀. */
 const WORKS = [
  {no:24,slug:'quoka-archive',t:'두목쿼카의 코딩 아카이브',d:'지금 보고 있는 이 사이트 — 여섯 달의 코딩 작업을 한 서가에 모은 아카이브예요.',c:'연구회·브랜드',date:'2026.07',host:'github.io',url:'',self:true},
+ {no:28,slug:'naneun-quoka-arcade',t:'나는 QUOKA · 슈퍼데이트권 아케이드',d:'여덟 가지 아케이드 미니게임 중 네 개를 클리어하면 슈퍼데이트권을 발급하는 박람회 부스 게임.',c:'게임',date:'2026.07',host:'higgsfield.gg',url:'https://golden-zephyr-854.higgsfield.gg/'},
  {no:27,slug:'maeum-studio',t:'튼튼 마음근력 스튜디오',d:'6학년 체육 17개 제재에 한국형 사회정서교육(K-SEL)을 얹은 17차시 수업 운영 스튜디오.',c:'수업도구',date:'2026.07',host:'higgsfield.app',url:'https://maeum-studio.higgsfield.app'},
  {no:26,slug:'naneun-quoka',t:'나는 QUOKA · 쿼카의 솔로나라',d:'다섯 가지 미션으로 수업 스타일을 진단해 나에게 맞는 AI 에듀테크 짝을 찾아 주는 박람회 부스 체험앱.',c:'연수·행사',date:'2026.07',host:'github.io',url:'https://gottkf1208.github.io/naneun-quoka/'},
  {no:25,slug:'teacher-ai-survey',t:'교사 AI 설문 분석 대시보드',d:'전국 교사 236명의 디지털·AI 도구 활용 설문을 역할 인식·도구 생태계까지 파고드는 연구 분석 대시보드.',c:'수업도구',date:'2026.07',host:'github.io',url:'https://gottkf1208.github.io/teacher-ai-survey/'},
