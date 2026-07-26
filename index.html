@@ -228,7 +228,7 @@ footer.site{margin:56px 0 34px;position:relative;z-index:1}
     <span class="qdot">Q</span>
     <div class="nav-title">두목쿼카의 코딩 아카이브<small>Dumok Quoka · Coding Archive</small></div>
     <span class="nav-sp"></span>
-    <span class="range">2026.03 — 2026.07 · <span id="navCount">31</span> WORKS</span>
+    <span class="range">2026.03 — 2026.07 · <span id="navCount">32</span> WORKS</span>
   </div>
 </div>
 
@@ -359,6 +359,7 @@ const CATS = {
   '연수·행사':    ['#E4E7FB','#4A54B8'],
   '생성기·프롬프트':['#DCEDFA','#1E6FA8'],
   '연구회·브랜드': ['#E5EBF2','#33445C'],
+  '일상·재미':    ['#F8E3D8','#A34A28'],
 };
 const HOSTDOT = {'higgsfield.app':'#46B8D2','higgsfield.gg':'#46B8D2','github.io':'#2A3550','pages.dev':'#E8843C','netlify.app':'#1FA598'};
 const API = 'https://quoka-archive-api.higgsfield.app';
@@ -375,6 +376,7 @@ const gridWorks = () => admin ? WORKS.filter(w=>!isDeleted(w.slug)) : visibleWor
 /* no = 제작 순서(오래된 것부터). 기본 정렬은 최신순. feat = 대표 캐러셀. */
 const WORKS = [
  {no:24,slug:'quoka-archive',t:'두목쿼카의 코딩 아카이브',d:'지금 보고 있는 이 사이트 — 여섯 달의 코딩 작업을 한 서가에 모은 아카이브예요.',c:'연구회·브랜드',date:'2026.07',host:'github.io',url:'',self:true},
+ {no:32,slug:'alcohol-pairing',t:'만취능력자의 알콜페어링',d:'술 이름은 묻지 않아요 — 다섯 문항으로 오늘 하루를 읽어 전국 17개 시·도 특산주와 향토 안주 한 상을 골라 주는 추천 앱.',c:'일상·재미',date:'2026.07',host:'higgsfield.app',url:'https://alcohol-pairing.higgsfield.app'},
  {no:31,slug:'quokka-art-academy',t:'쿼카의 아트 아카데미',d:'그리고(DRAW)·움직이고(MOVE)·놀면서(PLAY) 배우는 디지털 아트 체험관 — 크레용 그림이 네온 무대로 입장해요.',c:'수업도구',date:'2026.07',host:'higgsfield.app',url:'https://quokka-art-academy.higgsfield.app/'},
  {no:30,slug:'memory-photo-studio',t:'우리 반 1학기 추억 사진관',d:'추억 배경을 고르고 사진과 그때의 마음 한 문장을 남기는 학급 추억 갤러리 — 인생네컷 찍기까지.',c:'수업도구',date:'2026.07',host:'netlify.app',url:'https://merry-melba-07d247.netlify.app/'},
  {no:29,slug:'kfta-insight',t:'KFTA 교권보호 데이터 인사이트',d:'한국교총 교권침해 상담 438건을 침해 주체·학교급·지역·소송비 지원까지 열 가지 섹션으로 분석한 대시보드.',c:'수업도구',date:'2026.07',host:'pages.dev',url:'https://kfta-insight.pages.dev/'},
