@@ -228,7 +228,7 @@ footer.site{margin:56px 0 34px;position:relative;z-index:1}
     <span class="qdot">Q</span>
     <div class="nav-title">두목쿼카의 코딩 아카이브<small>Dumok Quoka · Coding Archive</small></div>
     <span class="nav-sp"></span>
-    <span class="range">2026.03 — 2026.07 · <span id="navCount">34</span> WORKS</span>
+    <span class="range">2026.03 — 2026.08 · <span id="navCount">39</span> WORKS</span>
   </div>
 </div>
 
@@ -242,7 +242,7 @@ footer.site{margin:56px 0 34px;position:relative;z-index:1}
       <div class="stat-pills">
         <span class="spill"><i></i><b id="statWorks">24</b><span>작품</span></span>
         <span class="spill"><i></i><b>5</b><span>갈래</span></span>
-        <span class="spill"><i></i><b>5</b><span>개월</span></span>
+        <span class="spill"><i></i><b>6</b><span>개월</span></span>
       </div>
     </div>
 
@@ -361,7 +361,7 @@ const CATS = {
   '연구회·브랜드': ['#E5EBF2','#33445C'],
   '일상·재미':    ['#F8E3D8','#A34A28'],
 };
-const HOSTDOT = {'higgsfield.app':'#46B8D2','higgsfield.gg':'#46B8D2','github.io':'#2A3550','pages.dev':'#E8843C','netlify.app':'#1FA598'};
+const HOSTDOT = {'higgsfield.app':'#46B8D2','higgsfield.gg':'#46B8D2','github.io':'#2A3550','pages.dev':'#E8843C','netlify.app':'#1FA598','workers.dev':'#C8622E'};
 const API = 'https://quoka-archive-api.higgsfield.app';
 
 /* 숨김/삭제 상태 — 서버(D1)가 진실, localStorage는 첫 화면 깜빡임 방지용 캐시 */
@@ -376,6 +376,11 @@ const gridWorks = () => admin ? WORKS.filter(w=>!isDeleted(w.slug)) : visibleWor
 /* no = 제작 순서(오래된 것부터). 기본 정렬은 최신순. feat = 대표 캐러셀. */
 const WORKS = [
  {no:24,slug:'quoka-archive',t:'두목쿼카의 코딩 아카이브',d:'지금 보고 있는 이 사이트 — 여섯 달의 코딩 작업을 한 서가에 모은 아카이브예요.',c:'연구회·브랜드',date:'2026.07',host:'github.io',url:'',self:true},
+ {no:39,slug:'quokka-blink',t:'쿼카의 영어 깜빡이',d:'단어 목록만 붙여넣으면 소개·깜빡이·퀴즈·팀 대결까지 수업 한 벌이 그대로 나오는 영어 단어 수업 웹앱.',c:'수업도구',date:'2026.08',host:'pages.dev',url:'https://quokka-blink.pages.dev'},
+ {no:38,slug:'ethic-city',t:'같은 실력, 다른 AI · AI 과제 배틀',d:'90초 배틀 세 판 동안 뽑기로 받은 AI 요금제가 승부를 가르고, 마지막엔 우리 반의 공정 규칙을 직접 정하는 디지털 격차 체험 게임.',c:'게임',date:'2026.08',host:'higgsfield.app',url:'https://ethic-city.higgsfield.app'},
+ {no:37,slug:'quoka-calendar',t:'모여라, 쿼카 캘린더',d:'경기 쿼카연구회의 연수·행사 일정을 한곳에 모아 신청과 알림, 내 활동 기록까지 챙기는 연구회 전용 캘린더.',c:'연구회·브랜드',date:'2026.08',host:'workers.dev',url:'https://quoka-calendar.gottkf12087.workers.dev',alt:[['이전 버전','https://quokka-calendar.higgsfield.app']]},
+ {no:36,slug:'asia-food-street',t:'ASIA FOOD STREET',d:'아시아 야시장에 나만의 음식점을 열고 영어로 세계 손님을 맞이하는 영어과 경영 시뮬레이션 게임.',c:'게임',date:'2026.07',host:'higgsfield.app',url:'https://asia-food-street.higgsfield.app'},
+ {no:35,slug:'quoka-workflow',t:'연구 워크플로우 스튜디오',d:'진단부터 제목 수술실·킬링 키워드 랩·증거자료 맵·제출 응급실까지, 연구대회 보고서 완주를 옆에서 코치하는 교사용 워크스페이스.',c:'수업도구',date:'2026.07',host:'pages.dev',url:'https://quoka-workflow.pages.dev'},
  {no:34,slug:'prompt-seoga',t:'사서 선생님의 프롬프트 서가',d:'사서 선생님을 위한 학교 AI 프롬프트 86편 — 월별 도서관 살림과 저작권 도구까지 갖춘 두 번째 서가.',c:'생성기·프롬프트',date:'2026.07',host:'github.io',url:'https://gottkf1208.github.io/prompt-seoga/'},
  {no:33,slug:'prompt-seojae',t:'선생님의 프롬프트 서재',d:'상담교사 1정 연수를 위한 학교 생성형 AI 프롬프트 85편 — 교육부·교육청 지침 열여섯 편을 근거로 엮은 서재.',c:'생성기·프롬프트',date:'2026.07',host:'github.io',url:'https://gottkf1208.github.io/prompt-seojae/'},
  {no:32,slug:'alcohol-pairing',t:'만취능력자의 알콜페어링',d:'술 이름은 묻지 않아요 — 다섯 문항으로 오늘 하루를 읽어 전국 17개 시·도 특산주와 향토 안주 한 상을 골라 주는 추천 앱.',c:'일상·재미',date:'2026.07',host:'higgsfield.app',url:'https://alcohol-pairing.higgsfield.app'},
