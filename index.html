@@ -228,7 +228,7 @@ footer.site{margin:56px 0 34px;position:relative;z-index:1}
     <span class="qdot">Q</span>
     <div class="nav-title">두목쿼카의 코딩 아카이브<small>Dumok Quoka · Coding Archive</small></div>
     <span class="nav-sp"></span>
-    <span class="range">2026.03 — 2026.08 · <span id="navCount">39</span> WORKS</span>
+    <span class="range">2026.03 — 2026.09 · <span id="navCount">48</span> WORKS</span>
   </div>
 </div>
 
@@ -242,7 +242,7 @@ footer.site{margin:56px 0 34px;position:relative;z-index:1}
       <div class="stat-pills">
         <span class="spill"><i></i><b id="statWorks">24</b><span>작품</span></span>
         <span class="spill"><i></i><b>5</b><span>갈래</span></span>
-        <span class="spill"><i></i><b>6</b><span>개월</span></span>
+        <span class="spill"><i></i><b>7</b><span>개월</span></span>
       </div>
     </div>
 
@@ -376,8 +376,17 @@ const gridWorks = () => admin ? WORKS.filter(w=>!isDeleted(w.slug)) : visibleWor
 /* no = 제작 순서(오래된 것부터). 기본 정렬은 최신순. feat = 대표 캐러셀. */
 const WORKS = [
  {no:24,slug:'quoka-archive',t:'두목쿼카의 코딩 아카이브',d:'지금 보고 있는 이 사이트 — 여섯 달의 코딩 작업을 한 서가에 모은 아카이브예요.',c:'연구회·브랜드',date:'2026.07',host:'github.io',url:'',self:true},
- {no:39,slug:'quokka-blink',t:'쿼카의 영어 깜빡이',d:'단어 목록만 붙여넣으면 소개·깜빡이·퀴즈·팀 대결까지 수업 한 벌이 그대로 나오는 영어 단어 수업 웹앱.',c:'수업도구',date:'2026.08',host:'pages.dev',url:'https://quokka-blink.pages.dev'},
- {no:38,slug:'ethic-city',t:'같은 실력, 다른 AI · AI 과제 배틀',d:'90초 배틀 세 판 동안 뽑기로 받은 AI 요금제가 승부를 가르고, 마지막엔 우리 반의 공정 규칙을 직접 정하는 디지털 격차 체험 게임.',c:'게임',date:'2026.08',host:'higgsfield.app',url:'https://ethic-city.higgsfield.app'},
+ {no:48,slug:'eurasia-express',t:'비바와 떠나는 통일 기차여행',d:'서울에서 유럽까지 — 철길 퍼즐·남북 요리·아리랑 연주 미션을 거쳐 여행 앨범을 완성하는 유라시아 횡단 통일 수업 게임.',c:'게임',date:'2026.09',host:'pages.dev',url:'https://eurasia-express.pages.dev/'},
+ {no:47,slug:'lifebot-build',t:'라이프봇 3D 조립실',d:'피아노 메트로놈·우리 반 심판·복도 안전 등대 — 레고 로봇 세 대를 3D로 돌려 조립하고 센서 데이터와 블록코딩까지 이어 보는 수업실.',c:'수업도구',date:'2026.09',host:'workers.dev',url:'https://lifebot-build.gottkf12087.workers.dev'},
+ {no:46,slug:'idea-evoke',t:'EVOKE · 생각이 흐르는 수업',d:'교사가 사고 맥락을 설계하면 학생이 캔버스에서 생각을 펼치고 잇고 다듬는 브레인스토밍 수업 도구.',c:'수업도구',date:'2026.09',host:'workers.dev',url:'https://idea-evoke.gottkf12087.workers.dev/'},
+ {no:45,slug:'quokka-blink-v4',t:'쿼카의 영어 깜빡이 · 네온',d:'깜빡이에 베이퍼웨이브 옷을 입히고, 배경 사진 업로드와 반 전체가 함께 그리고 맞히는 실시간 그림잇기까지 얹은 확장판.',c:'수업도구',date:'2026.09',host:'pages.dev',url:'https://quokka-blink-v4.pages.dev'},
+ {no:44,slug:'lifebot',t:'LIFE-BOT 프로젝트',d:'사흘 동안 학교와 집의 불편을 찾아 기록하고, 그 관찰을 피지컬 AI 설계로 바꿔 가는 일곱 단계 탐구 웹앱.',c:'수업도구',date:'2026.09',host:'pages.dev',url:'https://lifebot.pages.dev'},
+ {no:43,slug:'sel-training',t:'사회정서교육 AI 실습 도구 모음',d:'150분 연수의 산출물 세 벌 — 감정 데이터 대시보드와 후속학습 플래너, SAFE 영상 제작 패키지를 한 화면에서 열어요.',c:'연수·행사',date:'2026.09',host:'github.io',url:'https://gottkf1208.github.io/sel-training/'},
+ {no:42,slug:'vivasam-blink',t:'비바샘의 영어 깜빡이',d:'비상 초등 영어 5·6학년 단원 뱅크를 그대로 담고 비버 친구가 안내하는, 단원 카드에서 바로 수업이 열리는 자매 버전.',c:'수업도구',date:'2026.08',host:'pages.dev',url:'https://vivasam-blink-v3.pages.dev',alt:[['라이트 버전','https://vivasam-blink.pages.dev']]},
+ {no:41,slug:'quokka-blink',t:'쿼카의 영어 깜빡이',d:'단어 목록만 붙여넣으면 소개·깜빡이·퀴즈·팀 대결까지 수업 한 벌이 그대로 나오는 영어 단어 수업 웹앱.',c:'수업도구',date:'2026.08',host:'pages.dev',url:'https://quokka-blink.pages.dev'},
+ {no:40,slug:'ethic-city',t:'윤리시티, 성적표의 비밀',d:'같은 문제 같은 시간인데 성적표가 다른 이유를 파헤치고, 우리 반의 공정한 규칙을 함께 정하는 40분짜리 실시간 AI 윤리 수업 게임.',c:'게임',date:'2026.08',host:'workers.dev',url:'https://ethic-city.gottkf12087.workers.dev',alt:[['이전 버전 · AI 과제 배틀','https://ethic-city.higgsfield.app']]},
+ {no:39,slug:'sojunghan',t:'나에게 소중한 것',d:'1950년 기억 열차에 올라 소중한 것 열두 가지를 하나씩 내려놓으며 분단의 상실을 체험하는 특별차시 수업.',c:'수업도구',date:'2026.08',host:'pages.dev',url:'https://sojunghan-2oa.pages.dev/'},
+ {no:38,slug:'tongil-train',t:'통일열차',d:'도덕 6학년 「통일 한반도의 어느 날」 다섯 차시를 통일열차 탑승 콘셉트로 묶은 디지털 수업 꾸러미.',c:'수업도구',date:'2026.08',host:'higgsfield.app',url:'https://tongil-train.higgsfield.app/'},
  {no:37,slug:'quoka-calendar',t:'모여라, 쿼카 캘린더',d:'경기 쿼카연구회의 연수·행사 일정을 한곳에 모아 신청과 알림, 내 활동 기록까지 챙기는 연구회 전용 캘린더.',c:'연구회·브랜드',date:'2026.08',host:'workers.dev',url:'https://quoka-calendar.gottkf12087.workers.dev',alt:[['이전 버전','https://quokka-calendar.higgsfield.app']]},
  {no:36,slug:'asia-food-street',t:'ASIA FOOD STREET',d:'아시아 야시장에 나만의 음식점을 열고 영어로 세계 손님을 맞이하는 영어과 경영 시뮬레이션 게임.',c:'게임',date:'2026.07',host:'higgsfield.app',url:'https://asia-food-street.higgsfield.app'},
  {no:35,slug:'quoka-workflow',t:'연구 워크플로우 스튜디오',d:'진단부터 제목 수술실·킬링 키워드 랩·증거자료 맵·제출 응급실까지, 연구대회 보고서 완주를 옆에서 코치하는 교사용 워크스페이스.',c:'수업도구',date:'2026.07',host:'pages.dev',url:'https://quoka-workflow.pages.dev'},
