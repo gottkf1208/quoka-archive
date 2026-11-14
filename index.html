@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>쿼카 아카이브 — 두목쿼카 × 클로드 작업실</title>
-<meta name="description" content="두목쿼카가 클로드와 함께 만들어 온라인에 올린 게임·수업 도구·연수 앱 29편을 한 서가에 모은 아카이브.">
+<meta name="description" content="두목쿼카가 클로드와 함께 만들어 온라인에 올린 게임·수업 도구·연수 앱 30편을 한 서가에 모은 아카이브.">
 <meta name="theme-color" content="#F2F6FA">
 <meta property="og:title" content="쿼카 아카이브">
-<meta property="og:description" content="두목쿼카 × 클로드 — 함께 만든 웹앱 29편, 한 서가에.">
+<meta property="og:description" content="두목쿼카 × 클로드 — 함께 만든 웹앱 30편, 한 서가에.">
 <meta property="og:image" content="https://gottkf1208.github.io/quoka-archive/assets/og.png">
 <meta property="og:url" content="https://gottkf1208.github.io/quoka-archive/">
 <meta property="og:type" content="website">
@@ -194,7 +194,7 @@ footer.site{margin:56px 0 34px;position:relative;z-index:1}
     <span class="qdot">Q</span>
     <div class="nav-title">쿼카 아카이브<small>Quoka Archive · with Claude</small></div>
     <span class="nav-sp"></span>
-    <span class="range">2026.03 — 2026.11 · 29 WORKS</span>
+    <span class="range">2026.03 — 2026.11 · 30 WORKS</span>
   </div>
 </div>
 
@@ -206,7 +206,7 @@ footer.site{margin:56px 0 34px;position:relative;z-index:1}
         <p class="lead">2026년 봄부터 여름까지, 클로드와 함께 만들어 온라인에 올린 게임·수업 도구·연수 앱을 전부 모았어요. 카드를 누르면 바로 열려요.</p>
       </div>
       <div class="stat-pills">
-        <span class="spill"><i></i><b>29</b><span>작품</span></span>
+        <span class="spill"><i></i><b>30</b><span>작품</span></span>
         <span class="spill"><i></i><b>5</b><span>갈래</span></span>
         <span class="spill"><i></i><b>6</b><span>개월</span></span>
       </div>
@@ -303,11 +303,13 @@ const CATS = {
   '연수·행사':    ['#E4E7FB','#4A54B8'],
   '생성기·프롬프트':['#DCEDFA','#1E6FA8'],
   '연구회·브랜드': ['#E5EBF2','#33445C'],
+  '생활·관리':    ['#FCEBD5','#8A5638'],
 };
 const HOSTDOT = {'higgsfield.app':'#46B8D2','github.io':'#2A3550'};
 
 /* no = 제작 순서(오래된 것부터). 기본 정렬은 최신순. feat = 대표 캐러셀. */
 const WORKS = [
+ {no:30,slug:'dumok-quoka-home',t:'두목쿼카의 집',d:'아파트 조감도에서 방을 눌러 할 일·가전·소모품을 챙기고, 관리비·차량·보험·문서까지 한곳에 적어 두는 우리 집 관리 앱. 개인용이라 공개 화면은 로그인이고, 안쪽은 비밀번호로 들어가요.',c:'생활·관리',date:'2026.11',host:'dumokquoka.com',url:'https://house.dumokquoka.com/'},
  {no:29,slug:'lumiteach-kr-pm',t:'루미티치KR 교사 PM',d:'초·중·고 콘텐츠 개발 교사 모집과 캐스팅, 일정, 자료실, 도구 의견을 한곳에서 관리하는 총괄 PM 운영 사이트. 공개 화면은 모집 안내이고 나머지는 팀 코드로 들어가요.',c:'연수·행사',date:'2026.11',host:'workers.dev',url:'https://lumiteach-kr-pm.gottkf12087.workers.dev/'},
  {no:28,slug:'textrip',t:'TEXTRIP 텍스트립',d:'읽은 책의 이야기 배경을 지도·시대·메모로 잇고, 책장 사진을 찍으면 Claude가 책을 찾아 주며, 장소마다 스티커·엽서·여권 도장을 모으는 독서 지도.',c:'연수·행사',date:'2026.11',host:'github.io',url:'https://gottkf1208.github.io/textrip/?sample=1',feat:true},
  {no:27,slug:'digitaltutor-archive',t:'디지털튜터 자료실',d:'디지털튜터 연수 마지막 날, 6개 모둠이 함께 만든 웹앱·활동지·발표자료를 링크 하나로 모아 두고 다시 꺼내 쓰는 공유 서가.',c:'연수·행사',date:'2026.10',host:'github.io',url:'https://gottkf1208.github.io/digitaltutor-archive/'},
