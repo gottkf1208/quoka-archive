@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>두목쿼카의 기록</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0}
+
+/* 네이버 블로그 구조(초록 타이틀 띠 · 왼쪽 프로필/카테고리 · 앨범형/목록형)를 다시 그린 보관함. 규칙은 DESIGN.md */
+:root{
+  --bg:#FFFFFF; --surface:#F4F7F5; --fg:#1A1F1C; --muted:#68706B;
+  --line:#E5E8EB; --accent:#00873C; --brand:#03C75A; --on-brand:#06281A; --ink:#0F2A1E; --lav:#6FF0A8; --on-ink:#E9F5EE;
+  --sans:"IBM Plex Sans KR",Pretendard,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1412; --surface:#17201B; --fg:#E9F0EC; --muted:#93A098; --line:#25302A; --accent:#4BE38F; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1412; --surface:#17201B; --fg:#E9F0EC; --muted:#93A098; --line:#25302A; --accent:#4BE38F; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* 타이틀 띠 */
+.band{background:var(--brand);color:var(--on-brand);margin-top:calc(-1 * env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px)}
+.band .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:36px 28px}
+.band .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--on-brand);opacity:.75;text-transform:uppercase}
+.band h1{margin:6px 0 4px;font-size:30px;font-weight:700;letter-spacing:-.01em}
+.band h1 b{color:#FFFFFF;font-weight:700}
+.band p{margin:0;font-size:14px;color:var(--on-brand)}
+.band .count{font-family:var(--mono);font-size:13px;color:var(--on-brand);font-variant-numeric:tabular-nums}
+.band .count strong{font-size:22px;color:var(--on-brand);font-weight:500;margin-right:4px}
+
+/* 2단 */
+.main{display:grid;grid-template-columns:232px minmax(0,1fr);gap:40px;padding-block:32px 72px}
+aside{min-width:0}
+.profile{padding-bottom:20px;border-bottom:1px solid var(--line)}
+.profile .name{font-size:17px;font-weight:700}
+.profile .role{font-size:13px;color:var(--muted);margin-top:2px;line-height:1.5}
+.cats{margin-top:16px}
+.cats h2{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.06em;margin:0 0 8px}
+.cats ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.cats button{all:unset;cursor:pointer;display:flex;justify-content:space-between;width:100%;box-sizing:border-box;padding:6px 10px;border-radius:4px;font-size:14px}
+.cats button:hover{background:var(--surface)}
+.cats button[aria-pressed="true"]{color:var(--accent);font-weight:600}
+.cats button .n{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.cats button:focus-visible,.view button:focus-visible,.card:focus-visible,.row:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* 목록 머리 */
+.head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-bottom:14px;border-bottom:2px solid var(--brand)}
+.head h2{margin:0;font-size:17px;font-weight:700}
+.head h2 .cc{font-family:var(--mono);font-weight:400;font-size:13px;color:var(--muted);margin-left:6px}
+.tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.search{position:relative}
+.search input{font:inherit;font-size:14px;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:6px 10px;width:180px}
+.search input:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:transparent}
+.view{display:flex;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.view button{all:unset;cursor:pointer;font-size:13px;padding:6px 12px;color:var(--muted)}
+.view button[aria-pressed="true"]{background:var(--brand);color:var(--on-brand);font-weight:600}
+
+/* 앨범형 */
+.album{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 22px;padding-top:24px}
+.card{display:flex;flex-direction:column;gap:10px;min-width:0}
+.thumb{aspect-ratio:16/9;max-width:100%;border-radius:6px;overflow:hidden;background:var(--ink);position:relative}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+.card:hover .thumb img{transform:scale(1.02)}
+.card:hover .t{text-decoration:underline;text-underline-offset:3px}
+.meta{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted)}
+.meta .c{color:var(--accent);font-weight:600}
+.meta time{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.t{margin:0;font-size:16px;font-weight:600;line-height:1.45;text-wrap:balance;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ex{margin:0;font-size:13.5px;color:var(--muted);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.new{display:inline-grid;place-items:center;width:15px;height:15px;border-radius:3px;background:var(--brand);color:#FFFFFF;font-family:var(--mono);font-size:10px;font-weight:500;vertical-align:2px;margin-left:4px}
+
+/* 글자 표지 */
+.textcover{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:14px 16px;color:var(--on-ink)}
+.textcover .lb{font-size:11px;color:#9FC2AE;letter-spacing:.02em}
+.textcover .tt{font-size:18px;font-weight:700;line-height:1.35;color:var(--lav);text-wrap:balance;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.textcover .ct{align-self:flex-end;font-family:var(--mono);font-size:11px;color:#9FC2AE}
+
+/* 목록형 */
+.list{padding-top:4px}
+.row{display:grid;grid-template-columns:96px minmax(0,1fr) 88px;gap:16px;align-items:baseline;padding:13px 8px;border-bottom:1px solid var(--line)}
+.row:hover{background:var(--surface)}
+.row .c{font-size:12.5px;color:var(--accent);font-weight:600}
+.row .tl{font-size:15px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row:hover .tl{text-decoration:underline;text-underline-offset:3px}
+.row time{font-family:var(--mono);font-size:12.5px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.empty{padding:48px 0;text-align:center;color:var(--muted);font-size:14px}
+
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-block:20px 32px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:980px){.album{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){
+  .main{grid-template-columns:minmax(0,1fr);gap:20px;padding-top:20px}
+  .profile{display:none}
+  .cats{margin-top:0}
+  .cats h2{display:none}
+  .cats ul{flex-direction:row;overflow-x:auto;gap:6px;padding-bottom:4px;scrollbar-width:none}
+  .cats button{width:auto;white-space:nowrap;border:1px solid var(--line);border-radius:999px;padding:5px 12px;gap:6px}
+  .cats button[aria-pressed="true"]{border-color:var(--accent)}
+  .search input{width:140px}
+  .row{grid-template-columns:minmax(0,1fr) 84px}
+  .row .c{display:none}
+}
+@media (max-width:560px){.album{grid-template-columns:minmax(0,1fr)}.band h1{font-size:25px}}
+@media (prefers-reduced-motion:reduce){.thumb img{transition:none}}
+</style>
+
+</head>
+<body>
+<header class="band">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Blog archive</div>
+      <h1>두목쿼카의 <b>기록</b></h1>
+      <p>Claude와 함께 쓴 블로그 포스팅 보관함</p>
+    </div>
+    <div class="count"><strong id="total">0</strong>편</div>
+  </div>
+</header>
+
+<div class="wrap main">
+  <aside>
+    <div class="profile">
+      <div class="name">두목쿼카</div>
+      <div class="role">초등교사 · 경기 AI융합교육 연구회<br>Q.U.O.K.A 회장</div>
+    </div>
+    <nav class="cats" aria-label="카테고리">
+      <h2>카테고리</h2>
+      <ul id="cats"></ul>
+    </nav>
+  </aside>
+
+  <section aria-labelledby="listTitle">
+    <div class="head">
+      <h2 id="listTitle"><span id="catName">전체보기</span><span class="cc" id="catCount"></span></h2>
+      <div class="tools">
+        <label class="search"><span hidden>검색</span><input id="q" type="search" placeholder="검색" autocomplete="off"></label>
+        <div class="view" role="group" aria-label="보기 방식">
+          <button type="button" id="vAlbum" aria-pressed="true">앨범형</button>
+          <button type="button" id="vList" aria-pressed="false">목록형</button>
+        </div>
+      </div>
+    </div>
+    <div id="out"></div>
+  </section>
+</div>
+
+<footer><div class="wrap"><span>카드를 누르면 포스팅 원본(Claude 아티팩트)이 새 탭에서 열려요.</span><span>두목쿼카 × Claude</span></div></footer>
+
+<script>
+(function(){
+  var posts=[], cat='전체보기', view='album', q='';
+  try{ view = localStorage.getItem('qa-view') || 'album'; }catch(e){}
+  var $=function(id){return document.getElementById(id)};
+  var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+  var today=new Date(); today.setHours(0,0,0,0);
+  function isNew(d){var t=new Date(d+'T00:00:00');return (today-t)/864e5<=3}
+  function fmt(d){return d.replace(/-/g,'.')}
+
+  function render(){
+    var items=posts.filter(function(p){
+      if(cat!=='전체보기'&&p.category!==cat) return false;
+      if(!q) return true;
+      return (p.title+' '+p.excerpt+' '+p.category).toLowerCase().indexOf(q)>-1;
+    });
+    $('catName').textContent=cat; $('catCount').textContent=items.length+'개의 글';
+    $('vAlbum').setAttribute('aria-pressed',view==='album'); $('vList').setAttribute('aria-pressed',view==='list');
+    var out=$('out');
+    if(!items.length){out.className='';out.innerHTML='<p class="empty">'+(q?'검색어와 맞는 글이 없어요.':'아직 이 카테고리에 올린 글이 없어요.')+'</p>';return}
+    var N=function(p){return isNew(p.date)?'<span class="new" title="새 글">N</span>':''};
+    if(view==='album'){
+      out.className='album';
+      out.innerHTML=items.map(function(p){
+        var th=p.thumb?'<img src="'+esc(p.thumb)+'" alt="" loading="lazy">'
+          :'<div class="textcover"><span class="lb">두목쿼카의 기록</span><span class="tt">'+esc(p.title)+'</span><span class="ct">'+esc(p.category)+'</span></div>';
+        return '<a class="card" href="'+esc(p.url)+'" target="_blank" rel="noopener"><div class="thumb">'+th+'</div>'
+          +'<div class="meta"><span class="c">'+esc(p.category)+'</span><time datetime="'+p.date+'">'+fmt(p.date)+'</time></div>'
+          +'<h3 class="t">'+esc(p.title)+N(p)+'</h3><p class="ex">'+esc(p.excerpt)+'</p></a>';
+      }).join('');
+    }else{
+      out.className='list';
+      out.innerHTML=items.map(function(p){
+        return '<a class="row" href="'+esc(p.url)+'" target="_blank" rel="noopener"><span class="c">'+esc(p.category)+'</span>'
+          +'<span class="tl">'+esc(p.title)+N(p)+'</span><time datetime="'+p.date+'">'+fmt(p.date)+'</time></a>';
+      }).join('');
+    }
+  }
+  function renderCats(){
+    var counts={}; posts.forEach(function(p){counts[p.category]=(counts[p.category]||0)+1});
+    var names=['전체보기'].concat(Object.keys(counts));
+    $('cats').innerHTML=names.map(function(n){
+      var c=n==='전체보기'?posts.length:counts[n];
+      return '<li><button type="button" data-cat="'+esc(n)+'" aria-pressed="'+(n===cat)+'"><span>'+esc(n)+'</span><span class="n">'+c+'</span></button></li>';
+    }).join('');
+  }
+  $('cats').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;cat=b.getAttribute('data-cat');renderCats();render()});
+  $('q').addEventListener('input',function(e){q=e.target.value.trim().toLowerCase();render()});
+  function setView(v){view=v;try{localStorage.setItem('qa-view',v)}catch(e){}render()}
+  $('vAlbum').addEventListener('click',function(){setView('album')});
+  $('vList').addEventListener('click',function(){setView('list')});
+
+  fetch('posts.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(function(d){
+    posts=d.slice().sort(function(a,b){return a.date<b.date?1:a.date>b.date?-1:0});
+    $('total').textContent=posts.length; renderCats(); render();
+  }).catch(function(){ $('out').innerHTML='<p class="empty">글 목록(posts.json)을 불러오지 못했어요. 새로고침해 주세요.</p>'; });
+})();
+</script>
+</body>
+</html>
